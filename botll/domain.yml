@@ -1,0 +1,74 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - thanks
+  - get_salary
+  - inform
+
+entities:
+  - id
+  - department
+
+slots:
+  id:
+    type: text
+  department:
+    type: categorical
+    values:
+      - HR
+      - Finance
+      - Procurement
+      - IT
+      - Sales
+      - Admissions
+
+actions:
+  - utter_greet
+  - utter_cheer_up
+  - utter_did_that_help
+  - utter_happy
+  - utter_goodbye
+  - utter_iamabot
+  - utter_ask_id
+  - utter_ask_dep
+  - utter_ask_dep_id
+  - action_get_salary
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_ask_id:
+  - text: "What is your employee ID?"
+
+  utter_ask_dep:
+  - text: "What is your department?"
+
+  utter_ask_dep_id:
+  - text: "Please provide your employee ID and department?"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
